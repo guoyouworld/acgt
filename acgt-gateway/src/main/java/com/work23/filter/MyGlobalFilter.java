@@ -22,7 +22,7 @@ public class MyGlobalFilter implements GlobalFilter, Ordered {
         ServerHttpRequest request = exchange.getRequest();
 
 
-        ServerHttpResponse response = exchange.getResponse();
+        /*ServerHttpResponse response = exchange.getResponse();
         response.getHeaders().set("content-type","application/json;charset-utf-8");
         HashMap<String,Object> map = new HashMap<>(4);
         map.put("code", HttpStatus.UNAUTHORIZED.value());
@@ -36,9 +36,9 @@ public class MyGlobalFilter implements GlobalFilter, Ordered {
         }
         DataBuffer wrap = response.bufferFactory().wrap(bytes);
         //拦截
-        return response.writeWith(Mono.just(wrap));
+        return response.writeWith(Mono.just(wrap));*/
         //放行
-        //return chain.filter(exchange);
+        return chain.filter(exchange);
     }
 
     @Override

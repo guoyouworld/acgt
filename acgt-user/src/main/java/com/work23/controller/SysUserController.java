@@ -26,4 +26,8 @@ public class SysUserController {
         SysUser byId = sysUserServiceImpl.getById(id);
         return byId;
     }
+    @GetMapping("test")
+    public String test(){
+        return "test";
+    }
 }
