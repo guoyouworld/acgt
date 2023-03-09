@@ -1,0 +1,13 @@
+server:
+  port: 80
+spring:
+  application:
+    name: acgt-gateway
+  cloud:
+    gateway:
+      enabled: true
+      routes:
+        - id: acgt-login-route
+          uri: http://localhost:8117
+          predicates:
+            - Path=/login

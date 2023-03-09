@@ -1,0 +1,25 @@
+server:
+  port: 80
+spring:
+  application:
+    name: acgt-gateway
+  cloud:
+    gateway:
+      enabled: true
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+    register-with-eureka: true
+    fetch-registry: true
+    registry-fetch-interval-seconds: 3
+  instance:
+    instance-id: ${eureka.instance.hostname}:${spring.application.name}:${server.port}
+    hostname: localhost
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 5
